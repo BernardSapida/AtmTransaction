@@ -14,12 +14,12 @@ public class Terminal extends AccountTransaction {
             System.out.print("Enter your choice: ");
             String choice = sc.nextLine();
 
-            if(!choice.equalsIgnoreCase("S") && !choice.equalsIgnoreCase("Q")) throw new Exception("Invalid input! Please try again.");
+            if(!choice.equalsIgnoreCase("S") && !choice.equalsIgnoreCase("Q")) throw new Exception();
             System.out.println("===============================================");
             return choice;
         } catch(Exception e) {
-            System.out.println(e);
-            System.out.print("\n==========================================================================================\n");
+            System.out.println("Invalid input! Please try again.");
+            System.out.print("\n===============================================\n");
         }
         
         return queryChoice();
@@ -27,20 +27,26 @@ public class Terminal extends AccountTransaction {
     
     public int queryPinNumber(Account account) {
         try {
-            if(passwordAttempt > 3) throw new Exception("CAPTURED CARD.... PLEASE CALL 143-44");
             Scanner sc = new Scanner(System.in);
+            
+            if(passwordAttempt >= 3) {
+                System.out.println("\nCAPTURED CARD.... PLEASE CALL 143-44");
+                System.out.print("\n===============================================\n");
+                passwordAttempt = 0;
+                return -1;
+            }
 
             displayHeader();
             System.out.print("Enter your Pin Number: ");
             String pinNumber = sc.nextLine();
 
-            if(account.verifyPinNumber(pinNumber) == -1) throw new Exception("Invalid input! Please try again.");
+            if(account.verifyPinNumber(pinNumber) == -1) throw new Exception();
             System.out.println("===============================================");
             return account.verifyPinNumber(pinNumber);
         } catch(Exception e) {
             passwordAttempt++;
-            System.out.println(e);
-            System.out.print("\n==========================================================================================\n");
+            System.out.println("Invalid input! Please try again.");
+            System.out.print("\n===============================================\n");
         }
         
         return queryPinNumber(account);
@@ -67,7 +73,7 @@ public class Terminal extends AccountTransaction {
             return transactionType;
         } catch(Exception e) {
             System.out.println(e);
-            System.out.print("\n==========================================================================================\n");
+            System.out.print("\n===============================================\n");
         }
         
         return queryTransactionType();
@@ -96,7 +102,7 @@ public class Terminal extends AccountTransaction {
             return transactionType;
         } catch(Exception e) {
             System.out.println("Invalid input! Please try again.");
-            System.out.print("\n==========================================================================================\n");
+            System.out.print("\n===============================================\n");
         }
         
         return queryAdminAction();
@@ -106,6 +112,6 @@ public class Terminal extends AccountTransaction {
         System.out.println("\n\n===============================================");
         System.out.println("                     OOPBC                     ");
         System.out.println("Object Oriented Programming Banking Corporation");
-        System.out.println("===============================================");
+        System.out.println("===============================================\n");
     }
 }

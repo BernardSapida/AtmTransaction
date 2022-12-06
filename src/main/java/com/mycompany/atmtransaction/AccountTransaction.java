@@ -54,6 +54,6 @@ public class AccountTransaction {
         System.out.println("\n\n===============================================");
         System.out.println("                     OOPBC                     ");
         System.out.println("Object Oriented Programming Banking Corporation");
-        System.out.println("===============================================");
+        System.out.println("===============================================\n");
     }
 }
