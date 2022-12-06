@@ -1,6 +1,6 @@
 package com.mycompany.atmtransaction;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class AtmTransaction {
     private Account account = new Account();
@@ -56,6 +56,16 @@ public class AtmTransaction {
                 case "W" -> { account = accountTransaction.withdrawAmount(account, pinNumber); }
                 case "D" -> { account = accountTransaction.depositAmount(account, pinNumber); }
                 case "C" -> { break innerLoop; }
+            }
+            
+            System.out.print("Press X to Exit: ");
+            String response = sc.nextLine();
+
+            while(!response.equalsIgnoreCase("X")) {
+                System.out.println("Invalid input! Please try again.");
+                System.out.println("\n===============================================\n");
+                System.out.print("Press X to Exit: ");
+                response = sc.nextLine();
             }
         }
     }
