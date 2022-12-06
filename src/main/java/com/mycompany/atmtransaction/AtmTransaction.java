@@ -28,7 +28,7 @@ public class AtmTransaction {
             else startClient(pinNumber);
         }
         
-        System.out.println("Thank you for using ATM Transaction Program!");
+        System.out.println("\nThank you for using ATM Transaction Program!");
     }
     
     public void startAdministrator(int pinNumber) {
