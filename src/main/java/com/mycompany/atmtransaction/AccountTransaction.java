@@ -3,6 +3,12 @@ package com.mycompany.atmtransaction;
 import java.util.*;
 
 public class AccountTransaction {
+    /**
+     * This function displays the header, account number, account name, and balance of the account.
+     * 
+     * @param account the account object
+     * @param index the index of the account in the array
+     */
     public void displayBalanceInquiry(Account account, int index) {
         Scanner sc = new Scanner(System.in);
 
@@ -14,6 +20,13 @@ public class AccountTransaction {
         
     }
     
+    /**
+     * It takes an account object and an index as parameters, and returns an account object.
+     * 
+     * @param account The account object that is being used
+     * @param index the index of the account in the arraylist
+     * @return The account object is being returned.
+     */
     public Account withdrawAmount(Account account, int index) {
         try {
             Scanner sc = new Scanner(System.in);
@@ -31,6 +44,13 @@ public class AccountTransaction {
         return withdrawAmount(account, index);
     }
     
+    /**
+     * It takes in an account object and an index, and returns an account object
+     * 
+     * @param account Account object
+     * @param index the index of the account in the arraylist
+     * @return The account object is being returned.
+     */
     public Account depositAmount(Account account, int index) {
         try {
             Scanner sc = new Scanner(System.in);
@@ -50,6 +70,7 @@ public class AccountTransaction {
         return depositAmount(account, index);
     }
     
+    // A method that displays a header.
     public void displayHeader() {
         System.out.println("\n\n===============================================");
         System.out.println("                     OOPBC                     ");

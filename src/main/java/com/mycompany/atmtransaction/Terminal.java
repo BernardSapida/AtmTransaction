@@ -4,6 +4,12 @@ import java.util.*;
 
 public class Terminal extends AccountTransaction {
     private int passwordAttempt = 0;
+    
+    /**
+     * It displays a menu, asks the user to enter a choice, and returns the choice
+     * 
+     * @return The method is returning the value of the variable choice.
+     */
     public String queryChoice() {
         try {
             Scanner sc = new Scanner(System.in);
@@ -25,6 +31,13 @@ public class Terminal extends AccountTransaction {
         return queryChoice();
     }
     
+    /**
+     * It asks for a pin number, if the pin number is correct, it returns the pin number, if the pin
+     * number is incorrect, it asks for the pin number again
+     * 
+     * @param account Account object
+     * @return The method is returning the value of the pin number.
+     */
     public int queryPinNumber(Account account) {
         try {
             Scanner sc = new Scanner(System.in);
@@ -52,6 +65,12 @@ public class Terminal extends AccountTransaction {
         return queryPinNumber(account);
     }
     
+    /**
+     * It asks the user to input a transaction type, and if the input is invalid, it will ask the user
+     * to input again
+     * 
+     * @return The method is returning the transaction type.
+     */
     public String queryTransactionType() {
         try {
             Scanner sc = new Scanner(System.in);
@@ -79,6 +98,12 @@ public class Terminal extends AccountTransaction {
         return queryTransactionType();
     }
     
+    /**
+     * This function displays a menu of options for the user to choose from, and returns the user's
+     * choice.
+     * 
+     * @return The method is returning a String.
+     */
     public String queryAdminAction() {
         try {
             Scanner sc = new Scanner(System.in);
@@ -108,6 +133,7 @@ public class Terminal extends AccountTransaction {
         return queryAdminAction();
     }
     
+    // A method that displays a header.
     public void displayHeader() {
         System.out.println("\n\n===============================================");
         System.out.println("                     OOPBC                     ");

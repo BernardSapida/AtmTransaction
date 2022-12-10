@@ -4,6 +4,11 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Administrator {
+    /**
+     * It prints out the account information of the customer
+     * 
+     * @param account Account object
+     */
     public void viewCustomerInformation(Account account) {
         try {
             System.out.println("==========================================================================================");
@@ -19,6 +24,12 @@ public class Administrator {
         } catch(Exception e) {}
     }
     
+    /**
+     * It adds a new customer to the bank
+     * 
+     * @param account An object of the Account class
+     * @return The method is returning an object of type Account.
+     */
     public Account addNewCustomer(Account account) {
         Scanner sc = new Scanner(System.in);
         
@@ -68,6 +79,12 @@ public class Administrator {
         return account;
     }
     
+    /**
+     * It edits the customer's name
+     * 
+     * @param account An object of the Account class
+     * @return The account object is being returned.
+     */
     public Account editCustomerInformation(Account account) {
         Scanner sc = new Scanner(System.in);
         
@@ -101,6 +118,7 @@ public class Administrator {
         return account;
     }
     
+    // A method that changes the pin number of a customer.
     public Account changeCustomerPinNumber(Account account, int index) {
         Scanner sc = new Scanner(System.in);
         

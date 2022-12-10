@@ -8,12 +8,15 @@ public class AtmTransaction {
     private Administrator administrator = new Administrator();
     private Terminal terminal = new Terminal();
     
-    
     public static void main(String[] args) {
         AtmTransaction atmTransaction = new AtmTransaction();
         atmTransaction.startProgram();
     }
     
+    /**
+     * It starts the program by asking the user to enter a choice, then it asks the user to enter a pin
+     * number, and then it starts the administrator or client program depending on the pin number.
+     */
     public void startProgram() {
         outerLoop: while(true) {
             Scanner sc = new Scanner(System.in);
@@ -31,6 +34,13 @@ public class AtmTransaction {
         System.out.println("\nThank you for using ATM Transaction Program!");
     }
     
+    /**
+     * This function is called when the user selects the administrator option from the main menu. It
+     * then prompts the user to select an action to perform. The user can then select from a list of
+     * actions to perform
+     * 
+     * @param pinNumber the pin number of the customer
+     */
     public void startAdministrator(int pinNumber) {
         innerLoop: while(true) {
             String administratorAction = terminal.queryAdminAction();
@@ -46,6 +56,11 @@ public class AtmTransaction {
         }
     }
     
+    /**
+     * It's a function that starts the client and asks the user to input a transaction type
+     * 
+     * @param pinNumber the pin number of the account
+     */
     public void startClient(int pinNumber) {
         innerLoop: while(true) {
             String transactionType = terminal.queryTransactionType();

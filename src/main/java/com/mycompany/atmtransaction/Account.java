@@ -36,6 +36,15 @@ public class Account {
         accountList[5][3] = "5555";
     }
     
+    /**
+     * This function takes in a string, a string, a double, and an int, and then adds them to the
+     * accountList array
+     * 
+     * @param accountNumber The account number of the customer
+     * @param accountName The name of the account holder
+     * @param balance double
+     * @param pinNumber The pin number of the account
+     */
     public void setNewCustomer(String accountNumber, String accountName, double balance, int pinNumber){
         if(registeredAccounts == accountList.length) extendsArray();
         accountList[registeredAccounts][0] = accountNumber;
@@ -45,22 +54,45 @@ public class Account {
         registeredAccounts++;
     }
     
+    /**
+     * This function takes in an index and a name and sets the name of the customer at the given index
+     * to the given name.
+     * 
+     * @param index the index of the account in the array
+     * @param name The name of the account holder
+     */
     public void setNewCustomerName(int index, String name) {
         accountList[index][1] = name;
         System.out.println("Account name was successfully updated!");
     }
     
+    /**
+     * This function sets the pin number of a customer account.
+     * 
+     * @param index the index of the account in the array
+     * @param pinNumber The new pin number that the customer wants to change to.
+     */
     public void setNewCustomerPin(int index, String pinNumber) {
         accountList[index][3] = pinNumber;
         System.out.println("Account Pin Number was successfully updated!");
     }
     
+    /**
+     * It creates a new array that is twice the size of the original array, copies the original array
+     * into the new array, and then sets the original array to the new array
+     */
     public void extendsArray() {
         String[][] tempList = new String[accountList.length * 2][4];
         System.arraycopy(accountList, 0, tempList, 0, accountList.length);
         this.accountList = tempList;
     }
     
+    /**
+     * This function takes a string as an argument and returns an integer
+     * 
+     * @param accountNumber The account number to be verified.
+     * @return The index of the account number in the array.
+     */
     public int verifyAccountNumber(String accountNumber) {
         for(int i = 0; i < accountList.length; i++) {
             if(accountNumber.equalsIgnoreCase(accountList[i][0])) return i;
@@ -69,6 +101,12 @@ public class Account {
         return -1;
     }
     
+    /**
+     * This function takes a string as an argument and returns an integer
+     * 
+     * @param accountName The name of the account to be verified.
+     * @return The index of the account name in the array.
+     */
     public int verifyAccountName(String accountName) {
         for(int i = 0; i < accountList.length; i++) {
             if(accountName.equalsIgnoreCase(accountList[i][1])) return i;
@@ -77,6 +115,13 @@ public class Account {
         return -1;
     }
     
+    /**
+     * This function takes a pin number as a parameter and returns the index of the account that
+     * matches the pin number
+     * 
+     * @param pinNumber The pin number that the user entered.
+     * @return The index of the account in the accountList array.
+     */
     public int verifyPinNumber(String pinNumber) {
         for(int i = 0; i < accountList.length; i++) {
             if(pinNumber.equalsIgnoreCase(accountList[i][3])) return i;
@@ -85,10 +130,23 @@ public class Account {
         return -1;
     }
     
+    /**
+     * This function returns the accountList array
+     * 
+     * @return The accountList array.
+     */
     public String[][] getAccountList() {
         return accountList;
     }
     
+    /**
+     * It checks if the amount to withdraw is less than the amount in the account, if it is divisible
+     * by 100, and if it is, it withdraws the amount
+     * 
+     * @param amount the amount to withdraw
+     * @param index the index of the account in the array
+     * @return A boolean value.
+     */
     public boolean withdrawAmount(int amount, int index) {
         if(Double.parseDouble(accountList[index][2]) < amount) {
             System.out.println("The amount to withdraw exceeds the remaining amount in your account.");
@@ -104,6 +162,14 @@ public class Account {
         }
     }
     
+    /**
+     * This function takes in an amount and an index and deposits the amount into the account at the
+     * index
+     * 
+     * @param amount The amount to be deposited
+     * @param index the index of the account in the accountList array
+     * @return A boolean value.
+     */
     public boolean depositAmount(int amount, int index) {
         if(amount < 100) {
             System.out.println("The minimum deposit amount is 100");
